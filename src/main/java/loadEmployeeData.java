@@ -1,10 +1,12 @@
 
+import com.sun.scenario.effect.impl.state.LinearConvolveRenderState;
 import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
 import javafx.util.converter.IntegerStringConverter;
 
 import java.io.*;
 import java.text.DecimalFormat;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Scanner;
 
 //import java.sql.Connection;
@@ -19,7 +21,7 @@ Scanner sc;
         System.out.println("In Constructor");
     }
 
-    public void readWorksheet() throws ClassNotFoundException, IOException {
+    public void readWorksheet(List employees) throws ClassNotFoundException, IOException {
     //    Class.forName("com.mysql.cj.jdbc.Driver");
         //sc = new Scanner(new File("C:\\Users\\Administrator\\employees.csv"));
        String line = "";
@@ -38,7 +40,7 @@ Scanner sc;
             employee.setsName(empl[3]);
             employee.setManagerEmployeeID(empl[4]);
 //            LocalDate localDate = LocalDate.parse(empl[5]);
-            Double salary = Double.parseDouble(empl[6]);
+//            Double salary = Double.parseDouble(empl[6]);
 //            employee.setSalary(salary);
 //            //.doubleValue(empl[6]);
             System.out.println(employee.getEmployeeID());
@@ -48,6 +50,7 @@ Scanner sc;
             System.out.println(employee.getManagerEmployeeID());
 //            System.out.println(localDate);
 //            System.out.println(employee.getSalary());
+            employees.add(employee);
         }
         //sc.close();
     }
