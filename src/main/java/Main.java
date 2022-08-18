@@ -6,9 +6,12 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
-        List<Employee> employees = new ArrayList<>();
+  //      List<Employee> employees = new ArrayList<>();
 LoadEmployeeData loadEmployeeData = new LoadEmployeeData();
-loadEmployeeData.readWorksheet(employees);
-        System.out.println(employees.toString());
+ loadEmployeeData.startLoad();
+//loadEmployeeData.validateDataAndLoadTable(employees);
+//       for(Employee e: employees) {
+//           System.out.println(e.toString());
+//       }
     }
 }

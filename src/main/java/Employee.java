@@ -7,16 +7,16 @@ public class Employee {
     private String fName;
     private String sName;
     private String ManagerEmployeeID;
-    private LocalDate StarteDate;
+    private LocalDate StartDate;
     private Double salary;
 
-    public Employee(String employeeID, String title, String fName, String sName, String managerEmployeeID, LocalDate starteDate, Double salary) {
+    public Employee(String employeeID, String title, String fName, String sName, String managerEmployeeID, LocalDate startDate, Double salary) {
         this.employeeID = employeeID;
         this.title = title;
         this.fName = fName;
         this.sName = sName;
         ManagerEmployeeID = managerEmployeeID;
-        StarteDate = starteDate;
+        StartDate = startDate;
         this.salary = salary;
     }
 
@@ -64,12 +64,12 @@ public class Employee {
         ManagerEmployeeID = managerEmployeeID;
     }
 
-    public LocalDate getStarteDate() {
-        return StarteDate;
+    public LocalDate getStartDate() {
+        return StartDate;
     }
 
-    public void setStarteDate(LocalDate starteDate) {
-        StarteDate = starteDate;
+    public void setStartDate(LocalDate startDate) {
+        StartDate = startDate;
     }
 
     public Double getSalary() {
@@ -85,24 +85,23 @@ public class Employee {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Employee employee = (Employee) o;
-        return employeeID == employee.employeeID && ManagerEmployeeID == employee.ManagerEmployeeID && Objects.equals(title, employee.title) && Objects.equals(fName, employee.fName) && Objects.equals(sName, employee.sName) && Objects.equals(StarteDate, employee.StarteDate) && Objects.equals(salary, employee.salary);
+        return Objects.equals(employeeID, employee.employeeID) && Objects.equals(title, employee.title) && Objects.equals(fName, employee.fName) && Objects.equals(sName, employee.sName) && Objects.equals(ManagerEmployeeID, employee.ManagerEmployeeID) && Objects.equals(StartDate, employee.StartDate) && Objects.equals(salary, employee.salary);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(employeeID, title, fName, sName, ManagerEmployeeID, StarteDate, salary);
+        return Objects.hash(employeeID, title, fName, sName, ManagerEmployeeID, StartDate, salary);
     }
 
     @Override
-    public String
-    toString() {
+    public String toString() {
         return "Employee{" +
-                "employeeID=" + employeeID +
+                "employeeID='" + employeeID + '\'' +
                 ", title='" + title + '\'' +
                 ", fName='" + fName + '\'' +
                 ", sName='" + sName + '\'' +
-                ", ManagerEmployeeID=" + ManagerEmployeeID +
-                ", StarteDate=" + StarteDate +
+                ", ManagerEmployeeID='" + ManagerEmployeeID + '\'' +
+                ", StartDate=" + StartDate +
                 ", salary=" + salary +
                 '}';
     }
