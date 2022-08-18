@@ -9,6 +9,7 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Row;
 
 import java.io.*;
+import java.sql.SQLException;
 import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -130,13 +131,21 @@ private void writeDataSheetToExcel(){
     }
 
     private void validateDataAndLoadTable() {
-
+        DatabaseUtils db = new DatabaseUtils();
         createErrorLogFileHeader();
         for (Employee e : employees) {
             if ((e.getfName().isEmpty() || e.getsName().isEmpty() || (e.getSalary() <= 0))) {
                 logBadDataRecord(e);
             }
-            else insertData(e);
+            else {
+                try {
+                    db.saveToSQLDatabase(e);
+                } catch (ClassNotFoundException ex) {
+                    ex.printStackTrace();
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+            }
         }
         writeDataSheetToExcel();
     }

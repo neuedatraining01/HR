@@ -9,9 +9,5 @@ public class Main {
   //      List<Employee> employees = new ArrayList<>();
 LoadEmployeeData loadEmployeeData = new LoadEmployeeData();
  loadEmployeeData.startLoad();
-//loadEmployeeData.validateDataAndLoadTable(employees);
-//       for(Employee e: employees) {
-//           System.out.println(e.toString());
-//       }
     }
 }
